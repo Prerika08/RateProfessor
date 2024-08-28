@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate My Professor AI Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .response {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Rate My Professor</h1>
+    <input type="text" id="professorName" placeholder="Enter professor's name">
+    <button onclick="getProfessorRating()">Get Rating</button>
+    <div class="response" id="response"></div>
+</div>
+
+<script>
+    function getProfessorRating() {
+        const professorName = document.getElementById("professorName").value.trim();
+        const responseDiv = document.getElementById("response");
+
+        if (professorName === "") {
+            responseDiv.textContent = "Please enter a professor's name.";
+            return;
+        }
+
+        // Simulated responses for demonstration
+        const responses = {
+            "John Doe": "John Doe is known for being very engaging and provides thorough feedback on assignments.",
+            "Jane Smith": "Jane Smith is tough but fair. Her exams are challenging, but you learn a lot in her class.",
+            "Mark Johnson": "Mark Johnson's lectures are a bit dry, but his office hours are incredibly helpful.",
+            "default": "No information available for this professor."
+        };
+
+        // Check if the professor has a simulated response
+        const rating = responses[professorName] || responses["default"];
+
+        responseDiv.textContent = rating;
+    }
+</script>
+
+</body>
+</html>
